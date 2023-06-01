@@ -70,7 +70,8 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: SHALINI V
 RegisterNumber:  212222240096
 
-## UP COUNTER:
+UP COUNTER:
+
 module sync(clk,t);
 input clk;
 output reg [0:2]t;
@@ -82,7 +83,8 @@ t[0]=1^t[0];
 end
 endmodule
 
-## DOWN COUNTER:
+DOWN COUNTER:
+
 module sync(clk,t);
 input clk;
 output reg [0:2]t;
