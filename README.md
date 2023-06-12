@@ -69,81 +69,60 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by: SHALINI V
 RegisterNumber:  212222240096
-
-UP COUNTER:
-
-module sync(clk,t);
-input clk;
-output reg [0:2]t;
-always@ (posedge clk)
-begin
-t[2]=((t[1]&t[0])^t[2]);
-t[1]=t[0]^t[1];
-t[0]=1^t[0];
-end
-endmodule
-
-DOWN COUNTER:
-
-module sync(clk,t);
-input clk;
-output reg [0:2]t;
-wire bar2,bar1,bar0;
-not(bar2,t[2]);
-not(bar1,t[1]);
-not(bar0,t[0]);
-always@ (posedge clk)
-begin
-t[2]=((bar1&bar0)^t[2]);
-t[1]=bar0^t[1];
-t[0]=1^t[0];
-end
-endmodule
-
 ```
-
-
-
-
+#### UP COUNTER:
+```
+module uc(clk,A);
+input clk;
+output reg [3:0]A;
+always@(posedge clk)
+begin
+A[3]=((A[2]&A[1])&A[0])^A[3];
+A[2]=(A[1]&A[0])^A[2];
+A[1]=(A[0]^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+```
+#### DOWN COUNTER:
+```
+module dc(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+A[3]=((~A[2])&(~A[1])&(~A[0]))^A[3];
+A[2]=((~A[1])&(~A[0]))^A[2];
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
-## UP COUNTER :
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/a65630b4-1187-4f2b-a48a-4e5cb12bc2e5)
-
-## DOWN COUNTER :
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/587b2738-eea6-4aa2-9454-0fecb5cd7cdc)
-
-
-
-
-
-
-
-
+#### UP COUNTER :
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/025d0df8-3ee5-419c-92e9-14ad7ae95e1c)
+#### DOWN COUNTER :
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/9f463ce4-8c96-4c87-8297-48e9358389b5)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
 
-## UP COUNTER :
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/e26068d1-fd21-46b3-b5bf-f29321c78850)
-## DOWN COUNTER :
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/585c9019-6c98-482c-b5dc-cbe9eedc721d)
-
-
-
+#### UP COUNTER :
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/a9d9f07b-26a4-42e6-a546-e6ca31384b24)
+#### DOWN COUNTER :
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/4b719584-f95e-431b-b410-d1cec7d7cb21)
 
 
 ### TRUTH TABLE 
 
-## UP COUNTER :
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/28889bd6-02c6-4f3e-8758-bcd211ab19e9)
+#### UP COUNTER :
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/e5df28e0-944b-42c7-a9bf-bf218fe8310c)
+#### DOWN COUNTER :
 
-## DOWN COUNTER :
-
-![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/9e556c7a-726f-4b68-96e3-867e1a9ea2e0)
-
+![image](https://github.com/shalini-venkatesan/Exp-7-Synchornous-counters-/assets/118720291/1dfe7380-833b-4e65-92c9-3c244fb4bfc0)
 
 
 
